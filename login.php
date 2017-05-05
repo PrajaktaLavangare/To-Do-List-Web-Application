@@ -2,7 +2,7 @@
 
  <html>
  <body>
- <h1>To Do Application - LOGIN </h1>
+ <h1>To Do Application - LOGIN</h1>
  <form method = "post" action="index.php">
  <strong>Username:</strong><input type="test" name="reg_uname" value=""/><br><br>
  <strong>Password:</strong><input type="password" name="reg_password" value=""/><br><br>
