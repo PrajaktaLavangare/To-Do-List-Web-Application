@@ -20,7 +20,8 @@
    $statement->closeCursor();
    return $result;
    }
-   function createUser($username, $password){
+   function createUser($username, $password)
+   {
    global $db;
    $query = 'select * from users where username = :name ';
    $statement = $db->prepare($query);
@@ -55,13 +56,15 @@
    $result= $statement->fetchAll();
    $statement->closeCursor();
    $count = $statement->rowCount();
-   if($count == 1){
+   if($count == 1)
+   {
     setcookie('login',$username);
     setcookie('my_id',$result[0]['id']);
     setcookie('islogged',true);
    
     return true;
-   }else{
+   }
+   else{
     unset($_COOKIE['login']);
     setcookie('login',false);
     setcookie('islogged',false);
