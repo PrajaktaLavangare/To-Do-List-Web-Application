@@ -45,10 +45,14 @@ if($action == NULL)
 	}
        }
      }
-	else if ($action == 'add')
+       else if($action == 'add')
 	{
+	 addTodoItem($_COOKIE['my_id'],$_POST['todo_item'],$_POST['date'],$_POST['time']);	 
+	 $result = getTodoItems($_COOKIE['my_id']);
+	 include('list.php'); 
+	 }
+	  
     
-    
-    }
+ //  }
     ?>
   

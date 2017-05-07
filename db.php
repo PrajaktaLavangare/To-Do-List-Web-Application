@@ -1,14 +1,14 @@
   <?php
-   function addTodoItem($user_id,$todo_text){
+   function addTodoItem($user_id,$todo_item,$date,$time){
     global $db;
-    $query = 'insert into todos(user_id,todo_item) values (:userid,:todo_text)';
+    $query = 'insert into todos(user_id,todo_item,date,time) values (:userid,:todo_item, :date, :time)';
     $statement = $db->prepare($query);
     $statement->bindValue(':userid',$user_id);
-    $statement->bindValue(':todo_text',$todo_text);
+    $statement->bindValue(':todo_item',$todo_item);
+    $statement->bindValue(':date',$date);
+    $statement->bindValue(':time',$time);
     $statement->execute();
     $statement->closeCursor();
-    
-
    }
    function getTodoItems($user_id){
    global $db;

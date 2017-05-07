@@ -13,12 +13,14 @@
   <?php foreach($result as $res):?>
   <tr>
   <td> <?php echo $res['todo_item']; ?>  </td>
+  <td> <?php echo $res['date']; ?> </td>
+  <td> <?php echo $res['time']; ?> </td>
   </tr>  
   <?php endforeach;?>
       
   </table>
   <form method = 'post' action='index.php'>
-  <strong> Description: </strong> <input type='text' name='description'/>
+  <strong> Description: </strong> <input type='text' name='todo_item'/>
   <strong> Date: </strong><input type='date' name='date'/>
   <strong> Time: </strong><input type='time' name='time'/><br>
   <input type = 'hidden' name = 'action' value='add'><br>
