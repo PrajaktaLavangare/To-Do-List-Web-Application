@@ -18,7 +18,9 @@
       
   </table>
   <form method = 'post' action='index.php'>
-  <strong> Description: </strong> <input type='text' name='description'/><br>
+  <strong> Description: </strong> <input type='text' name='description'/>
+  <strong> Date: </strong><input type='date' name='date'/>
+  <strong> Time: </strong><input type='time' name='time'/><br>
   <input type = 'hidden' name = 'action' value='add'><br>
   <input type="submit" value="Add"/>
   </form>
