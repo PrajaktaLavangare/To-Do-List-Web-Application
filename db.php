@@ -20,24 +20,36 @@
    $statement->closeCursor();
    return $result;
    }
-   function createUser($username, $password)
+   function createUser($first_name,$last_name,$email,$username,$password,$phone_number,$birthday,$gender)
    {
    global $db;
-   $query = 'select * from users where username = :name ';
+   $query = 'select * from users where username = :username';
    $statement = $db->prepare($query);
-   $statement->bindValue(':name',$username);
+   $statement->bindValue(':username',$username);
    $statement->execute();
    $result= $statement->fetchAll();
    $statement->closeCursor();
    $count = $statement->rowCount();
-   if($count > 0)
+   if($count == 0)
    {
+   echo "account already exists";
+   }
+if($count > 0) {
+   echo "account already exists";
    return true;
-   }else{
-   $query = 'insert into users (username,passwordHash) values  (:name, :pass)';
+}
+   else{
+   $query = 'insert into users (first_name,last_name,email,username,passwordHash,phone_number,birthday,gender) values  (:first_name, :last_name, :email,
+   :username, :password, :phone_number, :birthday, :gender)';
    $statement = $db->prepare($query);
-   $statement->bindValue(':name',$username);
-   $statement->bindValue(':pass',$password);
+   $statement->bindValue(':first_name',$first_name);
+   $statement->bindValue(':last_name',$last_name);
+   $statement->bindValue(':email',$email);
+   $statement->bindValue(':username',$username);
+   $statement->bindValue(':password',$password);
+   $statement->bindValue(':phone_number',$phone_number);
+   $statement->bindValue(':birthday',$birthday);
+   $statement->bindValue(':gender',$gender);
    $statement->execute();
    $statement->closeCursor();
    return false;
@@ -48,10 +60,10 @@
   
   function isUserValid($username,$password){
    global $db;
-   $query = 'select * from users where username = :name and passwordHash = :pass';
+   $query = 'select * from users where username = :username and passwordHash = :password';
    $statement = $db->prepare($query);
-   $statement->bindValue(':name',$username);
-   $statement->bindValue(':pass',$password);
+   $statement->bindValue(':username',$username);
+   $statement->bindValue(':password',$password);
    $statement->execute();
    $result= $statement->fetchAll();
    $statement->closeCursor();
@@ -68,7 +80,7 @@
     unset($_COOKIE['login']);
     setcookie('login',false);
     setcookie('islogged',false);
-    setcookie('id',false);
+    setcookie('my_id',false);
      
    return false;
    }

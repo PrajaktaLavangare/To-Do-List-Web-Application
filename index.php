@@ -11,8 +11,8 @@ if($action == NULL)
   include('login.php');
   }else if($action == 'test_user')
   {
-   $username = $_POST['reg_uname'];
-   $password = $_POST['reg_password'];
+   $username = $_POST['username'];
+   $password = $_POST['password'];
    $suc = isUserValid($username,$password);
    if($suc == true)
     {
@@ -26,26 +26,26 @@ if($action == NULL)
     header("Location: badInfo.php");
     }
     }else if ($action == 'register')
-     {
+     { 
         $first_name = filter_input(INPUT_POST, 'first_name');
 	$last_name = filter_input(INPUT_POST, 'last_name');
 	$email = filter_input(INPUT_POST, 'email');
-	$password = filter_input(INPUT_POST, 'password');
+	$username = filter_input(INPUT_POST, 'username');
 	$phone_number = filter_input(INPUT_POST, 'phone_number');
 	$birthday = filter_input(INPUT_POST, 'birthday');
 	$gender = filter_input(INPUT_POST, 'gender');
-	if(isset($name))
-	{
-	$password = filter_input(INPUT_POST, 'password');
-	$exit = createUser($first_name,$password);
+	if(isset($username)) {
+	    $password = filter_input(INPUT_POST,'password');
+	$exit = createUser($first_name,$last_name,$email,$username,$password,$phone_number,$birthday,$gender);
 	if($exit == true)
 	{
 	include('user_exit.php');
 	}else {
-	header("Location: login.php");
+	header("Location: index.php");
 	}
-	}
-	}else if ($action == 'add')
+       }
+     }
+	else if ($action == 'add')
 	{
     
     
