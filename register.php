@@ -3,12 +3,13 @@
   <body>
   <h1>Sign Up</h1>
   <form method = 'post' action = 'index.php'>
-  <strong> First name: </strong> <input type="text" name='reg_uname'/> <br></br>
-  <strong> Last name: </strong> <input type="text" name="reg_password"/> <br> </br>
-  <strong> Email address: </strong> <input type='text' name='reg_uname'value="" /> <br> </br>
-  <strong> Phone number: </strong> <input type='text' name='reg_uname'value="" /> <br> </br>
-  <strong> Birthday: </strong> <input type='text' name='reg_uname'/> <br> </br>
-  <strong> Gender: </strong> <input type='text' name='reg_uname'/> <br> </br>
+  <strong> First name: </strong> <input type="text" name='first_name'/> <br></br>
+  <strong> Last name: </strong> <input type="text" name="last_name"/> <br> </br>
+  <strong> Email address: </strong> <input type='text' name="email" value=""/> <br> </br>
+  <strong> Password: </strong> <input type='text' name="password" value=""/> <br></br>
+  <strong> Phone number: </strong> <input type='text' name='phone_number'value=""/> <br> </br>
+  <strong> Birthday: </strong> <input type='text' name='birthday'/> <br> </br>
+  <strong> Gender: </strong> <input type='text' name='gender'/> <br> </br>
   <input type="hidden" name="action" value="register">
   <br>
   <input type="submit" value="Register" />
@@ -16,5 +17,5 @@
   <form action="login.php" method = 'post'> </form>
   <input type="submit" value='login' />
   </form>
-</body>
+  </body>
   </html>

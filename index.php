@@ -25,13 +25,19 @@ if($action == NULL)
     
     header("Location: badInfo.php");
     }
-    }else if ($action == 'registrar')
+    }else if ($action == 'register')
      {
-        $name = filter_input(INPUT_POST, 'reg_uname');
-        if(isset($name))
+        $first_name = filter_input(INPUT_POST, 'first_name');
+	$last_name = filter_input(INPUT_POST, 'last_name');
+	$email = filter_input(INPUT_POST, 'email');
+	$password = filter_input(INPUT_POST, 'password');
+	$phone_number = filter_input(INPUT_POST, 'phone_number');
+	$birthday = filter_input(INPUT_POST, 'birthday');
+	$gender = filter_input(INPUT_POST, 'gender');
+	if(isset($name))
 	{
-	$pass = filter_input(INPUT_POST, 'reg_password');
-	$exit = createUser($name,$pass);
+	$password = filter_input(INPUT_POST, 'password');
+	$exit = createUser($first_name,$password);
 	if($exit == true)
 	{
 	include('user_exit.php');
