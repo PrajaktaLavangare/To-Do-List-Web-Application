@@ -8,5 +8,8 @@
  <input type ="hidden" name="action" value="test_user"><br>
  <input type="submit" value="Login"/>
  </form>
+ <form method = "post" action = "register.php">
+ <input type = "submit" value = "Register" />
+ </form>
  </body>
  </html>
