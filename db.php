@@ -21,7 +21,7 @@
    return $result;
    }
 
-   function getTodoItems2($user_id) {
+   function completeditems($user_id) {
    global $db;
    $query = 'select * from todos where user_id= :userid and isdone=1';
    $statement = $db->prepare($query);
