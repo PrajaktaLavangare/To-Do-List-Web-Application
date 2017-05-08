@@ -57,6 +57,16 @@ if($action == NULL)
 	 $result = getTodoItems($_COOKIE['my_id']);
 	 include('list.php');
        }
+
+       if($action == 'edit_task') {
+         $task_id = $_POST['task_id'];
+         $new_todo_item = $_POST['new_todo_item'];
+	 $new_date = $_POST['new_date'];
+	 $new_time = $_POST['new_time'];
+         editTodoItem($task_id,$new_todo_item,$new_date,$new_time);
+	 $result = getTodoItems($_COOKIE['my_id']);
+	 include('list.php');
+       }
 	  
     
  //  }

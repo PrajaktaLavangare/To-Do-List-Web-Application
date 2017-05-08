@@ -21,8 +21,17 @@
   <input type="hidden" name="action" value="delete_task">
   <input type="submit" value="Delete">
   </form>
- 
- 
+  </td>
+  <td>
+ <form method = 'post' action = 'edit.php'>
+ <input type = "hidden" name="task_id" value="<?php echo $res['id']?>">
+ <input type="hidden" name="todo_item" value="<?php echo $res['todo_item']?>">
+ <input type="hidden" name="date" value="<?php echo $res['date']?>">
+ <input type="hidden" name="time" value="<?php echo $res['time']?>">
+ <input type="submit" value="Edit">
+ </form>
+ </td>
+
  </tr>  
   <?php endforeach;?>
       
