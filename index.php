@@ -9,7 +9,9 @@ if($action == NULL)
   if($action == "show_login_page")
   {
   include('login.php');
-  }else if($action == 'test_user')
+  }
+  
+  else if($action == 'test_user')
   {
    $username = $_POST['username'];
    $password = $_POST['password'];
@@ -49,12 +51,14 @@ if($action == NULL)
 	{
 	 addTodoItem($_COOKIE['my_id'],$_POST['todo_item'],$_POST['date'],$_POST['time']);	 
 	 $result = getTodoItems($_COOKIE['my_id']);
+	 $result2 = getTodoItems2($_COOKIE['my_id']);
 	 include('list.php'); 
 	 }
        if($action == 'delete_task') {
          $item = $_POST['task_id'];
 	 deleteTodoItem($_COOKIE['my_id'],$item);
 	 $result = getTodoItems($_COOKIE['my_id']);
+	 $result2 = getTodoItems2($_COOKIE['my_id']);
 	 include('list.php');
        }
 
@@ -65,8 +69,18 @@ if($action == NULL)
 	 $new_time = $_POST['new_time'];
          editTodoItem($task_id,$new_todo_item,$new_date,$new_time);
 	 $result = getTodoItems($_COOKIE['my_id']);
+	 $result2 = getTodoItems2($_COOKIE['my_id']);
 	 include('list.php');
        }
+
+       if($action == "complete") {
+       $task_id = $_POST['task_id'];
+       updateTask($_COOKIE['my_id'],$task_id);
+       $result = getTodoItems($_COOKIE['my_id']);
+       $result2 = getTodoItems2($_COOKIE['my_id']);
+       include('list.php');
+	        
+	       }
 	  
     
  //  }

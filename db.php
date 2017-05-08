@@ -12,7 +12,7 @@
    }
    function getTodoItems($user_id){
    global $db;
-   $query = 'select * from todos where user_id= :userid';
+   $query = 'select * from todos where user_id = :userid and isdone = 0';
    $statement = $db->prepare($query);
    $statement->bindValue(':userid',$user_id);
    $statement->execute();
@@ -20,6 +20,28 @@
    $statement->closeCursor();
    return $result;
    }
+
+   function getTodoItems2($user_id) {
+   global $db;
+   $query = 'select * from todos where user_id= :userid and isdone=1';
+   $statement = $db->prepare($query);
+   $statement->bindValue(':userid',$user_id);
+   $statement->execute();
+   $result2 = $statement->fetchAll();
+   $statement->closeCursor();
+   return $result2;
+   }
+   	
+   function updateTask($user_id,$task_id) {
+   global $db;
+  	$query = 'update todos set isdone=1 where id=:task_id and user_id=:userid';
+   	$statement = $db->prepare($query);
+    	$statement->bindValue(':task_id',$task_id);
+     	$statement->bindValue(':userid',$user_id);
+      	$statement->execute();
+       	$statement->closeCursor();
+        }
+
    function createUser($first_name,$last_name,$email,$username,$password,$phone_number,$birthday,$gender)
    {
    global $db;
