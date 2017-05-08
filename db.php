@@ -85,4 +85,15 @@ if($count > 0) {
    return false;
    }
    }
+
+   function deleteTodoItem($user_id,$task_id) {
+     global $db;
+     $query = 'delete from todos where id=:task_id and user_id = :userid';
+     $statement = $db->prepare($query);
+     $statement->bindValue(':userid',$user_id);
+     $statement->bindValue(':task_id',$task_id);
+     $statement->execute();
+     $statement->closeCursor();
+  }
+
    ?>

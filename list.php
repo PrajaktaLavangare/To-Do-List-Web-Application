@@ -15,7 +15,15 @@
   <td> <?php echo $res['todo_item']; ?>  </td>
   <td> <?php echo $res['date']; ?> </td>
   <td> <?php echo $res['time']; ?> </td>
-  </tr>  
+  <td>
+  <form method = 'post' action = 'index.php'>
+  <input type="hidden" name="task_id" value="<?php echo $res['id']?>">
+  <input type="hidden" name="action" value="delete_task">
+  <input type="submit" value="Delete">
+  </form>
+ 
+ 
+ </tr>  
   <?php endforeach;?>
       
   </table>

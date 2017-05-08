@@ -51,6 +51,12 @@ if($action == NULL)
 	 $result = getTodoItems($_COOKIE['my_id']);
 	 include('list.php'); 
 	 }
+       if($action == 'delete_task') {
+         $item = $_POST['task_id'];
+	 deleteTodoItem($_COOKIE['my_id'],$item);
+	 $result = getTodoItems($_COOKIE['my_id']);
+	 include('list.php');
+       }
 	  
     
  //  }
