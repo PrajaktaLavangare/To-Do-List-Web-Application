@@ -6,9 +6,13 @@
   
 ?>
   <html>
+  <head>
+  <link rel="stylesheet" type="text/css" href="css2.css">
+  <link rel="stylesheet" type="text/css" href="css.css">
+ </head>
   <body>
 
-<table border=1>
+<table border=1 class="heavyTable">
   <thead>
   <th>Task</th>
   <th>Date</th>
