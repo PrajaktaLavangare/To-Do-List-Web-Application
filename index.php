@@ -26,8 +26,9 @@ if($action == NULL)
     }else{
     //echo "Wrong User Name/Password!";
     
-    header("Location: badInfo.php");
-    }
+ //   header("Location: badInfo.php");
+   include ('badinfo.php');
+   }
     }else if ($action == 'register')
      { 
         $first_name = filter_input(INPUT_POST, 'first_name');
