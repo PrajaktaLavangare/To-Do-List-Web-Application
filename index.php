@@ -20,7 +20,8 @@ if($action == NULL)
     {
     //echo 'Welcome';    
     $result = getTodoItems($_COOKIE['my_id']);
-    include('list.php');
+    $result2 = completeditems($_COOKIE['my_id']);
+   include('list.php');
     
     }else{
     //echo "Wrong User Name/Password!";
